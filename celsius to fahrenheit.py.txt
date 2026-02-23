@@ -1,0 +1,5 @@
+def convert_temp(c):
+    return (c * 9/5) + 32
+
+celsius = float(input("Enter Celsius: "))
+print("Fahrenheit:", convert_temp(celsius))
