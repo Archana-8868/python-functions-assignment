@@ -1,0 +1,9 @@
+def remove_duplicates(numbers):
+    new_list = []
+    for item in numbers:
+        if item not in new_list:
+            new_list.append(item)
+    return new_list
+
+nums = list(map(int, input("Enter numbers separated by space: ").split()))
+print("After removing duplicates:", remove_duplicates(nums))
