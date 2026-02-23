@@ -1,0 +1,6 @@
+def count_words(line):
+    words = line.split()
+    return len(words)
+
+text = input("Enter sentence: ")
+print("Total words:", count_words(text))
