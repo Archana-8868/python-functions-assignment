@@ -1,0 +1,19 @@
+def calculator(a, b, choice):
+    if choice == 1:
+        return a + b
+    elif choice == 2:
+        return a - b
+    elif choice == 3:
+        return a * b
+    elif choice == 4:
+        return a / b
+    else:
+        return "Invalid choice"
+
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
+
+print("1.Add  2.Subtract  3.Multiply  4.Divide")
+ch = int(input("Enter choice: "))
+
+print("Result:", calculator(x, y, ch))
