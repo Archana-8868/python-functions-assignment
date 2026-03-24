@@ -1,0 +1,21 @@
+import os
+from groq import Groq
+
+# 👉 Direct key (for now, easier)
+client = Groq(api_key="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")
+
+def query_groq(prompt):
+    try:
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model="llama-3.1-8b-instant"
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+if __name__ == "__main__":
+    user_input = input("Enter prompt: ")
+    print("Processing...\n")
+    result = query_groq(user_input)
+    print("Response:\n", result)
