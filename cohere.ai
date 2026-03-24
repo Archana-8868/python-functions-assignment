@@ -1,0 +1,17 @@
+import cohere
+co = cohere.Client("orxXvHuJxfQssHv0kevfbrYxk2gvDIGd5KK4KRjj")
+
+def query_cohere(prompt):
+    try:
+        response = co.chat(
+            model="command-r",  
+            message=prompt
+        )
+        return response.text
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+if __name__ == "__main__":
+    user_input = input("Enter prompt: ")
+    print("\nResponse:\n")
+    print(query_cohere(user_input))
