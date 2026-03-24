@@ -1,0 +1,19 @@
+import os
+from openai import OpenAI
+
+client = OpenAI(api_key="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")
+
+def query_openai(prompt):
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=200
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+if __name__ == "__main__":
+    user_input = input("Enter prompt: ")
+    print(query_openai(user_input))
