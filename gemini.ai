@@ -1,0 +1,16 @@
+import google.generativeai as genai
+import os
+
+genai.configure(api_key=os.getenv("AIzaSyCTrOJev7J5cee0GAhzuaPQTPYsM4dWwsc"))
+
+def query_gemini(prompt):
+    try:
+        model = genai.GenerativeModel("gemini-pro")
+        response = model.generate_content(prompt)
+        return response.text
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+if __name__ == "__main__":
+    user_input = input("Enter prompt: ")
+    print(query_gemini(user_input))
